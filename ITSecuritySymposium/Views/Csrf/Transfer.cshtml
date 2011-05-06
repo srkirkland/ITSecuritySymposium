@@ -1,0 +1,43 @@
+﻿@model ITSecuritySymposium.Models.Balance
+
+@{
+    ViewBag.Title = "Transfer";
+}
+
+<h2>Transfer some money.  We'll take a small cut.  Won't hurt at all.</h2>
+
+<h3>@Model.UserName, you have @Model.Amount.  Please enter transfer info below.</h3>
+
+@using (Html.BeginForm("TransferMoney", "Csrf")) { 
+
+    <fieldset>
+        <legend>Transfer</legend>
+                
+        
+        <div class="editor-label">
+            <label for="from">From: </label>
+        </div>
+        <div class="editor-field">
+            <input type="text" name="from" value="@Model.UserName" />
+        </div>
+
+        <div class="editor-label">
+            <label for="to">To: </label>
+        </div>
+        <div class="editor-field">
+            <input type="text" name="to" placeholder="Enter recipient" />
+        </div>
+
+        <div class="editor-label">
+            <label for="amount">Amount: </label>
+        </div>
+        <div class="editor-field">
+            <input type="number" name="amount" />
+        </div>
+
+        <p>
+            <input type="submit" value="Save" /> | @Html.ActionLink("Cancel", "Index")
+        </p>
+    </fieldset>
+
+}

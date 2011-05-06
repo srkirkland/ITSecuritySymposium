@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITSecuritySymposium", "ITSecuritySymposium\ITSecuritySymposium.csproj", "{6B35063E-D8E0-43BF-8AFB-3DBECEDEB28B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filler", "Filler\Filler.csproj", "{8331ED6B-86A0-44D2-AA8C-13A825AF64F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BadGuy", "BadGuy\BadGuy.csproj", "{8F8EFA9B-8973-4588-99C6-2EAB6E6ACE45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{6B35063E-D8E0-43BF-8AFB-3DBECEDEB28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B35063E-D8E0-43BF-8AFB-3DBECEDEB28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B35063E-D8E0-43BF-8AFB-3DBECEDEB28B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8331ED6B-86A0-44D2-AA8C-13A825AF64F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8331ED6B-86A0-44D2-AA8C-13A825AF64F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8331ED6B-86A0-44D2-AA8C-13A825AF64F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8331ED6B-86A0-44D2-AA8C-13A825AF64F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F8EFA9B-8973-4588-99C6-2EAB6E6ACE45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F8EFA9B-8973-4588-99C6-2EAB6E6ACE45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F8EFA9B-8973-4588-99C6-2EAB6E6ACE45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F8EFA9B-8973-4588-99C6-2EAB6E6ACE45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
