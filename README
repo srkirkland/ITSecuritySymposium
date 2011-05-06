@@ -1,3 +1,17 @@
 Demo stuff for the 2011 UCDavis IT Security Symposium.
 
 http://itsecuritysymposium.ucdavis.edu/
+
+--
+CSRF:
+ 
+* Demo the banking application
+* Now to the evil side
+* First we can do a get request that changes money.  This is bad, only idempotent operations should be GET.
+* Change to post, now it will not work.
+* Now evil bank does post example, which works.  This is of course because there is no authorization being preformed.
+* Showing the above is optional really, not a CSRF attack
+* Now, lock down to authorize
+* For CSRF #1, get user to visit http://localhost:5416/Csrf/GetForgeryPage.  This is the GET attack example.
+* For CSRF #2, get user to visit http://localhost:5416/Csrf/PostForgeryPage.  This is the POST attack.
+* Solve the post attack by adding an antiforgerytoken.

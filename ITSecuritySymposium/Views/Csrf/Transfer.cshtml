@@ -8,11 +8,11 @@
 
 <h3>@Model.UserName, you have @Model.Amount.  Please enter transfer info below.</h3>
 
-@using (Html.BeginForm("TransferMoney", "Csrf")) { 
+@using (Html.BeginForm("TransferMoney", "Bank")) { 
 
     <fieldset>
         <legend>Transfer</legend>
-                
+        @Html.AntiForgeryToken()
         
         <div class="editor-label">
             <label for="from">From: </label>

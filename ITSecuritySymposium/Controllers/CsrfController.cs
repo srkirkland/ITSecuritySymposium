@@ -22,7 +22,13 @@ namespace ITSecuritySymposium.Controllers
 
             return View(balance);
         }
+    }
 
+    public class BankController : ApplicationController
+    {
+        //[Authorize]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult TransferMoney(string from, string to, double amount)
         {
             //Make sure the money is coming from the current user and is a positive amount 
@@ -36,7 +42,7 @@ namespace ITSecuritySymposium.Controllers
 
             Db.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Csrf");
         }
     }
 }
