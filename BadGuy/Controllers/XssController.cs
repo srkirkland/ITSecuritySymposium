@@ -39,7 +39,17 @@ namespace BadGuy.Controllers
                                    new InjectionExample
                                        {
                                            Title = "Cookie Thief!",
-                                           Content = @"<script>alert('Sending the following cookie info to bad people:  ' + document.cookie);</script>"
+                                           Content =
+                                               @"<script>alert('Sending the following cookie info to bad people:  ' + document.cookie);</script>"
+                                       },
+                                   new InjectionExample
+                                       {
+                                           Title = "Content Replacement",
+                                           Content =
+                                               @"This cat is lolz: <br/><tt> &nbsp;&nbsp; ____<br>&nbsp; (.&nbsp;&nbsp; \<br>&nbsp;&nbsp;&nbsp; \&nbsp; |&nbsp;&nbsp; <br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp; \ |___(\--/)<br>&nbsp;&nbsp; __/&nbsp;&nbsp;&nbsp; (&nbsp; . . )<br>&nbsp; ""'._.&nbsp;&nbsp;&nbsp; '-.O.'<br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '-.&nbsp; \ ""|\<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '.,,/'.,,mrf</tt>
+                                                <script>$(function(){$(""#comments>tbody>tr>td.content:first"").html(""Hey buddy you should totally click on this link! <a href='http://www.nooooooooooooooo.com/'>Nothing bad will happen!</a>"");});</script>"
                                        }
                                };
 

@@ -14,7 +14,8 @@
 
 <h2>Comments</h2>
 
-<table>
+<table id="comments">
+    <thead>
     <tr>
         <th>
             Author
@@ -27,16 +28,17 @@
         </th>
         <th></th>
     </tr>
-
+    </thead>
+    <tbody>
 @foreach (var item in Model.Comments) {
     <tr>
-        <td>
+        <td class="author">
             @Html.DisplayFor(modelItem => item.Author)
         </td>
-        <td>
+        <td class="created">
             @Html.DisplayFor(modelItem => item.Created)
         </td>
-        <td>
+        <td class="content">
             @Html.Raw(item.Content)
             @*@Html.DisplayFor(modelItem => item.Content)*@
         </td>
@@ -47,11 +49,13 @@
             }
         </td>
     </tr>
+    
 }
-
+</tbody>
 </table>
 
-@using (Html.BeginForm("CreateComment", "Xss", new { id = @Model.Id })) { 
+@using (Html.BeginForm("CreateComment", "Xss", new { id = @Model.Id }))
+{ 
     <fieldset>
         <legend>New Comment</legend>
 
