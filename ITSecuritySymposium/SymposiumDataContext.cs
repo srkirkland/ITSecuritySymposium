@@ -70,7 +70,7 @@ namespace ITSecuritySymposium
                 Author = "Agustus",
                 Created = DateTime.Now.AddDays(-9),
                 Content =
-                    "You suck."
+                    "Agustus > Julias Caesar."
             };
 
             var comment2 = new Comment
