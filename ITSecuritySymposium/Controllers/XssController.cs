@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using ITSecuritySymposium.Models;
 
@@ -23,6 +24,10 @@ namespace ITSecuritySymposium.Controllers
         {
             var postWithComments = Db.Posts.Include("Comments").Where(x => x.Id == id).Single();
 
+            var cookie = new HttpCookie("favorite number", "1077, same as my pin") {HttpOnly = false};
+
+            ControllerContext.HttpContext.Response.AppendCookie(cookie);
+            
             return View(postWithComments);
         }
 
