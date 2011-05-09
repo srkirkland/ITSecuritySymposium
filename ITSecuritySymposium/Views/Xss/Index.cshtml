@@ -1,0 +1,31 @@
+﻿@model List<ITSecuritySymposium.Models.Post>
+           
+@{
+    ViewBag.Title = "Index";
+}
+
+@section HeaderContent{
+    <style type="text/css">
+        #post 
+        {
+            border-style: groove;
+            margin: 5px;
+            padding: 5px;
+        }           
+    </style>
+}
+
+<h2>Welcome to FakeBook! </h2>
+
+<h3>Posts:</h3>
+
+<div id="posts">
+    @foreach (var p in Model) {
+        <div id="post">
+            <a href="@Url.Action("Post", new { id = @p.Id })">
+                <strong>@p.Author</strong> wrote on @p.Created.ToShortDateString()
+            </a>
+            <div>@p.Content</div>
+        </div>
+    }
+</div>
