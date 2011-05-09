@@ -28,7 +28,7 @@ namespace BadGuy.Controllers
                                    new InjectionExample
                                        {
                                            Title = "Simple 'Hello World' Example",
-                                           Content = @"<script>alert('hello world!');</script>"
+                                           Content = @"#winning<script>alert('hello world!');</script>"
                                        },
                                    new InjectionExample
                                        {
@@ -50,6 +50,12 @@ namespace BadGuy.Controllers
                                                 &nbsp;&nbsp;&nbsp;&nbsp; \ |___(\--/)<br>&nbsp;&nbsp; __/&nbsp;&nbsp;&nbsp; (&nbsp; . . )<br>&nbsp; ""'._.&nbsp;&nbsp;&nbsp; '-.O.'<br>
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '-.&nbsp; \ ""|\<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '.,,/'.,,mrf</tt>
                                                 <script>$(function(){$(""#comments>tbody>tr>td.content:first"").html(""Hey buddy you should totally click on this link! <a href='http://www.nooooooooooooooo.com/'>Nothing bad will happen!</a>"");});</script>"
+                                       },
+                                   new InjectionExample
+                                       {
+                                           Title = "Local Storage Hijacking",
+                                           Content =
+                                               "Take that Mr. Bougie. <script>localStorage.setItem('userhandle', 'mr. dumb face')</script>"
                                        }
                                };
 

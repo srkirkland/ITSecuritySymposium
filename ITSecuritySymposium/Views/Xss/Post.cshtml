@@ -12,7 +12,7 @@
 
 @Model.Content
 
-<h2>Comments</h2>
+<h2 id="comment-heading">Comments</h2>
 
 <table id="comments">
     <thead>
@@ -80,3 +80,13 @@
         </p>
     </fieldset>
 }
+
+<script>
+    $(function () {
+        var userhandle = localStorage.getItem("userhandle");
+
+        if (userhandle != null && userhandle != '') {
+            $("#comment-heading").html("Please add a comment " + userhandle);
+        }
+    });
+</script>

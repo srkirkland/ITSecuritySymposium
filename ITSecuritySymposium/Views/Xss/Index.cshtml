@@ -29,3 +29,22 @@
         </div>
     }
 </div>
+
+<h3>Utilities:</h3>
+
+<div id="utilities">
+    How would you like to be addressed? <input type="text" id="userhandle" placeholder="Enter your name" />
+</div>
+
+<script>
+    $(function () {
+        $("#userhandle").val(localStorage.getItem("userhandle"));
+        $("#userhandle").change(function () {
+            localStorage.setItem("userhandle", this.value);
+            var updated = $("<span>Updated</span>");
+            $("#utilities").append(updated);
+            updated.delay(500).fadeOut('slow');
+        });
+    });
+    
+</script>
