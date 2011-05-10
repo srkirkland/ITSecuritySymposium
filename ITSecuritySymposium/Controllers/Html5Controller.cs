@@ -40,5 +40,10 @@ namespace ITSecuritySymposium.Controllers
 
             return View();
         }
+
+        public ActionResult PolyfillRequired()
+        {
+            return View();
+        }
     }
 }
