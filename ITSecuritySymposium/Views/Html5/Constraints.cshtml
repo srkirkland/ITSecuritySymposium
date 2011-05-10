@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Constraints";
+}
+
+<h2>New Html5 Constraints</h2>
+
+<h3 style="color: Red;">@ViewBag.Message</h3>
+
+@using (Html.BeginForm()){
+    
+<fieldset>
+    <legend>Html5</legend>
+
+    <div class="editor-label">
+        <label>Required: </label>
+    </div>
+    <div class="editor-field">
+        <input type="text" required /> @(@"<input type=""text"" required />")
+    </div>
+
+    <div class="editor-label">
+        <label>Pattern (number followed by three uppercase numbers): </label>
+    </div>
+    <div class="editor-field">
+        <input type="text" pattern="[0-9][A-Z]{3}" /> @(@"<input type=""text"" pattern=""[0-9][A-Z]{3}"" />")
+    </div>
+
+    <div class="editor-label">
+        <label>MaxLength (up to 8 characters): </label>
+    </div>
+    <div class="editor-field">
+        <input type="text" maxlength="8" /> @(@"<input type=""text"" maxlength=""8"" />")
+    </div>
+
+    <div class="editor-label">
+        <label>Max Date (must be a date before 1980): </label>
+    </div>
+    <div class="editor-field">
+        <input type="date" max="1979-12-31" /> @(@"<input type=""date"" max=""1979-12-31"" />")
+    </div>
+
+    <div class="editor-label">
+        <label>Min Number (must be greater than 10): </label>
+    </div>
+    <div class="editor-field">
+        <input type="number" min="10" /> @(@"<input type=""number"" min=""10"" />")
+    </div>
+
+    <p>
+        <input type="submit" value="Save" /> | @Html.ActionLink("Cancel", "Index")
+    </p>
+</fieldset>
+    
+}

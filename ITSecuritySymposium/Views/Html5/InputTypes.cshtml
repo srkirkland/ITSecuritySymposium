@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "InputTypes";
+}
+
+<h2>New Html5 Input Types</h2>
+
+<h3 style="color: Red;">@ViewBag.Message</h3>
+
+@using(Html.BeginForm()){
+    
+<fieldset>
+    <legend>Html5</legend>
+
+    <div class="editor-label">
+        <label for="from">Old text input: </label>
+    </div>
+    <div class="editor-field">
+        <input type="text" /> @(@"<input type=""text"" />")
+    </div>
+
+    <div class="editor-label">
+        <label for="email">Email: </label>
+    </div>
+    <div class="editor-field">
+        <input type="email" /> @(@"<input type=""email"" />")
+    </div>
+
+    <div class="editor-label">
+        <label for="url">Url: </label>
+    </div>
+    <div class="editor-field">
+        <input type="url" /> @(@"<input type=""url"" />")
+    </div>
+
+    <div class="editor-label">
+        <label for="number">Number: </label>
+    </div>
+    <div class="editor-field">
+        <input type="number" /> @(@"<input type=""number"" />")
+    </div>
+
+    <div class="editor-label">
+        <label for="integer">Integer between 10 and 20: </label>
+    </div>
+    <div class="editor-field">
+        <input type="number" min="10" max="20" step="1" /> @(@"<input type=""text"" />")
+    </div>
+
+    <p>
+        <input type="submit" value="Save" /> | @Html.ActionLink("Cancel", "Index")
+    </p>
+</fieldset>
+    
+}
