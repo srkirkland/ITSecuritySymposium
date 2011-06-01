@@ -10,7 +10,7 @@
 
 <form id="myform">
             
-    Fill it in: <input type="text" id="txtbox" name="important" placeholder="Your favorite cat name?" />
+    Fill it in: <input type="text" id="supports-placeholder" name="important" placeholder="Your favorite cat name?" />
             
     <input type="submit" value="Submit!"/>
             
@@ -20,6 +20,8 @@
 <script type="text/javascript">
     $(function () {
         var hasPlaceholder = 'placeholder' in document.createElement('input');
+        $("#supports-placeholder").html(hasPlaceholder ? "Yes it does!" : "No it doesnt :(");
+
         // if placeholder isn't supported:
         if (!hasPlaceholder) {
             $('input, textarea').placeholder();   
