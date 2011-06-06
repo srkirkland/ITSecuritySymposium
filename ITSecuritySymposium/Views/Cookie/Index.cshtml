@@ -7,10 +7,18 @@
     <script type="text/javascript">
         $(function () {
 
+            // read all cookies that were user defined
             $.each($(".key"), function (index, item) {
                 var key = $(item).html();
 
                 $("#" + key + "_val").html(readCookie(key));
+            });
+
+            $("#btn_ChangeCookie").click(function () {
+                // change cookie values
+                setcookie("demo2", "Down with hypnotoad!");
+
+                $(this).parents("form")[0].submit();
             });
         });
 
@@ -25,6 +33,10 @@
             }
             return null;
         }
+
+        function setcookie(c_name, value) {
+            document.cookie = c_name + "=" + escape(value);
+        } 
 
     </script>
 }
@@ -84,4 +96,15 @@
             }
         </tbody>
     </table>
+</fieldset>
+
+<fieldset>
+
+    <legend>Modify Cookie</legend>
+
+    @using (Html.BeginForm())
+    { 
+    <input type="button" value="Change Cookies" id="btn_ChangeCookie" />
+    }
+
 </fieldset>

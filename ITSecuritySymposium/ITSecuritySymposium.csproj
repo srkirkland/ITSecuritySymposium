@@ -68,6 +68,7 @@
     <Compile Include="Controllers\CsrfController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Html5Controller.cs" />
+    <Compile Include="Controllers\RESTController.cs" />
     <Compile Include="Controllers\XssController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
