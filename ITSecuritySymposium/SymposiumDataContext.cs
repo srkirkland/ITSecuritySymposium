@@ -110,6 +110,7 @@ namespace ITSecuritySymposium
         {
             MembershipCreateStatus createStatus;
             Membership.CreateUser("srkirkland", "Devel$$", "srkirkland@ucdavis.edu", null, null, true, null, out createStatus);
+            Membership.CreateUser("anon", "Devel$$", "anon@mailinator.com", null, null, true, null, out createStatus);
             Membership.CreateUser("anlai", "Devel$$", "anlai@ucdavis.edu", null, null, true, null, out createStatus);
         }
     }

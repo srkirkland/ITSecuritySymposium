@@ -55,7 +55,7 @@ namespace BadGuy.Controllers
                                        {
                                            Title = "Local Storage Hijacking",
                                            Content =
-                                               "Take that Mr. Bougie. <script>localStorage.setItem('userhandle', 'mr. dumb face')</script>"
+                                               "Take that Mr. Bourgeoisie. <script>localStorage.setItem('userhandle', 'Mr. Fancy Pants')</script>"
                                        }
                                };
 

@@ -65,7 +65,7 @@
             <label for="author">Author: </label>
         </div>
         <div class="editor-field">
-            <input type="text" name="author" value="@User.Identity.Name" />
+            <input type="text" id="author" name="author" value="@User.Identity.Name" />
         </div>
 
         <div class="editor-label">
@@ -87,6 +87,7 @@
 
         if (userhandle != null && userhandle != '') {
             $("#comment-heading").html("Please add a comment " + userhandle);
+            $("#author").val(userhandle);
         }
     });
 </script>
