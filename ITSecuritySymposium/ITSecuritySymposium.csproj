@@ -68,7 +68,7 @@
     <Compile Include="Controllers\CsrfController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Html5Controller.cs" />
-    <Compile Include="Controllers\RESTController.cs" />
+    <Compile Include="Controllers\HtmlEncodeController.cs" />
     <Compile Include="Controllers\XssController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -186,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Cookie\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\HtmlEncode\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
