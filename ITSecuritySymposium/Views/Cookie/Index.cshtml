@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section HeaderContent
+{
+    <script type="text/javascript">
+        $(function () {
+
+            $.each($(".key"), function (index, item) {
+                var key = $(item).html();
+
+                $("#" + key + "_val").html(readCookie(key));
+            });
+        });
+
+        // code taken from http://www.quirksmode.org/js/cookies.html
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+    </script>
+}
+
+<h2>Reading Cookies</h2>
+
+<fieldset>
+    <legend>Defined Values</legend>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Key</td>
+                <td>Value</td>
+                <td>Expiration</td>
+                <td>Domain</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var key in Response.Cookies)
+            {
+                var val = Response.Cookies[key.ToString()];
+                <tr>
+                    <td><span class="key">@key</span></td>
+                    <td>@val.Value</td>
+                    <td>@val.Expires</td>
+                    <td>@val.Domain</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+</fieldset>
+
+<fieldset>
+    <legend>Read Values (using JS)</legend>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Key</td>
+                <td>Value</td>
+                <td>Expiration</td>
+                <td>Domain</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var key in Response.Cookies)
+            {
+                var val = Response.Cookies[key.ToString()];
+                <tr>
+                    <td>@key</td>
+                    <td><span id='@(string.Format("{0}_val", key))'></span></td>
+                    <td><span id='@(string.Format("{0}_expire", key))'></span></td>
+                    <td><span id='@(string.Format("{0}_domain", key))'></span></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</fieldset>
