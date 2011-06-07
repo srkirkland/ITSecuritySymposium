@@ -25,7 +25,7 @@ namespace ITSecuritySymposium.Controllers
 
         public ActionResult AccountDetails(string id)
         {
-            var balance = Db.Balances.Where(x => x.UserName == id).Single();
+            var balance = Db.Balances.Include("Transactions").Where(x => x.UserName == id).Single();
 
             // check if user is the actual owner of account
             //if (id != User.Identity.Name) throw new ArgumentException("User is not owner of account.");

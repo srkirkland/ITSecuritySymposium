@@ -92,8 +92,8 @@ namespace ITSecuritySymposium
 
         private static void CreateBalances(SymposiumDataContext context)
         {
-            var balanceScott = new Balance {UserName = "srkirkland", Amount = 1000};
-            var balanceAlan = new Balance {UserName = "anlai", Amount = 1000};
+            var balanceScott = new Balance {UserName = "srkirkland", Amount = 1000, AcctNumber = "251364859"};
+            var balanceAlan = new Balance {UserName = "anlai", Amount = 1000, AcctNumber = "548675943"};
             var balance2 = new Balance {UserName = "mgandhi", Amount = 0};
             var balance3 = new Balance {UserName = "mzuckerburg", Amount = 10000000000000000};
             var balance4 = new Balance {UserName = "hsimpson", Amount = 12.84};
