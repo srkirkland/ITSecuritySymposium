@@ -1,0 +1,40 @@
+﻿@model ITSecuritySymposium.Models.Balance
+
+@{
+    ViewBag.Title = "AccountDetails";
+}
+
+<h2>AccountDetails</h2>
+
+<fieldset>
+    <legend>Account Details</legend>
+
+    <ul>
+        <li><strong>User Name:</strong> @Model.UserName</li>
+        <li><strong>Account Number:</strong> @Model.AcctNumber</li>
+        <li><strong>Balance:</strong> @Model.Amount</li>
+    </ul>
+
+</fieldset>
+
+<fieldset>
+    <legend>Transactions</legend>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var trans in Model.Transactions)
+            { 
+                <tr>
+                    <td>@trans.Amount</td>
+                    <td>@trans.Comment</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</fieldset>

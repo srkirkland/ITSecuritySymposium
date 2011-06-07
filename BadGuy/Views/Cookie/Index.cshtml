@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section HeaderContent
+{
+    <script type="text/javascript">
+        $(function () {
+            $("#userId").html(readCookie("userId"));
+            $("#balance").html(readCookie("balance"));
+
+            if ($("#userId").html() == "" && $("#balance").html() == "") {
+                $("#message").html("I couldn't read anything :(");
+            }
+        });
+
+        // code taken from http://www.quirksmode.org/js/cookies.html
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+    </script>
+}
+
+<fieldset>
+    <legend>Stolen Information</legend>
+
+    <p id="message">This is what I read from your cookies using javascript.  Time to send to collections so I can live like a king!</p>
+
+    <ul>
+        <li><strong>User Id:</strong>&nbsp;<span id="userId"></span></li>
+        <li><strong>Balance:</strong>&nbsp;<span id="balance"></span></li>
+    </ul>
+    
+</fieldset>

@@ -22,6 +22,7 @@ namespace ITSecuritySymposium
         public DbSet<Balance> Balances { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
         /*
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }
@@ -97,6 +98,12 @@ namespace ITSecuritySymposium
             var balance3 = new Balance {UserName = "mzuckerburg", Amount = 10000000000000000};
             var balance4 = new Balance {UserName = "hsimpson", Amount = 12.84};
             var balance5 = new Balance {UserName = "tsoprano", Amount = 1000};
+
+            balanceScott.Transactions.Add(new Transaction(){Amount = 500, Balance = balanceScott, Comment = "paycheck deposit"});
+            balanceScott.Transactions.Add(new Transaction() { Amount = 100, Balance = balanceScott, Comment = "panhandeling deposit" });
+            balanceScott.Transactions.Add(new Transaction() { Amount = 400, Balance = balanceScott, Comment = "money found on the ground deposit" });
+
+            balanceAlan.Transactions.Add(new Transaction() {Amount = 1000, Balance = balanceAlan, Comment = "paycheck deposit"}); 
 
             context.Balances.Add(balanceScott);
             context.Balances.Add(balanceAlan);

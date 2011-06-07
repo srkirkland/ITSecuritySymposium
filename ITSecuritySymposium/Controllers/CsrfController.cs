@@ -22,6 +22,16 @@ namespace ITSecuritySymposium.Controllers
 
             return View(balance);
         }
+
+        public ActionResult AccountDetails(string id)
+        {
+            var balance = Db.Balances.Where(x => x.UserName == id).Single();
+
+            // check if user is the actual owner of account
+            //if (id != User.Identity.Name) throw new ArgumentException("User is not owner of account.");
+
+            return View(balance);
+        }
     }
 
     public class BankController : ApplicationController
