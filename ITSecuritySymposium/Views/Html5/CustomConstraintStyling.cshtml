@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "CustomConstraintStyling";
+}
+
+<h2>Styling Html5 forms with Css</h2>
+
+<h3 style="color: Red;">@ViewBag.Message</h3>
+
+@using (Html.BeginForm()){
+    
+<fieldset>
+    <legend>Html5</legend>
+
+    <div class="editor-label">
+        <label>Required: </label>
+    </div>
+    <div class="editor-field">
+        <input type="text" required /> @(@"<input type=""text"" required />")
+    </div>
+
+    <div class="editor-label">
+        <label>Email: </label>
+    </div>
+    <div class="editor-field">
+        <input type="email" required /> @(@"<input type=""email"" />")<span id="emailValid" class="email-validity" >[Valid!]</span>
+    </div>
+
+    <div class="editor-label">
+        <label>Number: </label>
+    </div>
+    <div class="editor-field">
+        <input type="number" min="10" max="20" /> @(@"<input type=""number"" min=""10"" max=""20"" />")
+    </div>
+    
+    <p>
+        <input type="submit" value="Save" /> | @Html.ActionLink("Cancel", "Index")
+    </p>
+</fieldset>
+    
+}
+
+@section HeaderContent {
+<style type="text/css">        
+    .email-validity
+    {
+        display:none;
+    }
+    
+    input:required:invalid {
+        background: pink;
+    }
+    
+    input[type=email]:valid + .email-validity
+    {
+        display: block;
+    }
+    
+    input:out-of-range
+    {
+        background: green;
+    }
+</style>
+}

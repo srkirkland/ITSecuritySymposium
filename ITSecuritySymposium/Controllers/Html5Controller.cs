@@ -46,6 +46,11 @@ namespace ITSecuritySymposium.Controllers
             return View();
         }
 
+        public ActionResult CustomConstraintStyling()
+        {
+            return View();
+        }
+
         public ActionResult PolyfillRequired()
         {
             return View();
