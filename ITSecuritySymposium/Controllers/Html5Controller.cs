@@ -51,6 +51,11 @@ namespace ITSecuritySymposium.Controllers
             return View();
         }
 
+        public ActionResult PolyfillSliderDynamicLoad()
+        {
+            return View();
+        }
+
         public ActionResult PolyfillPlaceholder()
         {
             return View();

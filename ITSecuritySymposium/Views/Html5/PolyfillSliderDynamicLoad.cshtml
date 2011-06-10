@@ -1,8 +1,8 @@
 ﻿@{
-    ViewBag.Title = "PolyfillSlider";
+    ViewBag.Title = "PolyfillSliderDynamicLoad";
 }
 
-<h2>Using Polyfills to add Slider Support</h2>
+<h2>Using Polyfills to add Slider Support with dynamic script loading</h2>
 
 <p>
     Does the browser support slider? <strong id="supports-slider"></strong>
@@ -22,14 +22,14 @@
         var supportsSlider = Modernizr.inputtypes.range;
         $("#supports-slider").html(supportsSlider ? "Yes it does!" : "No it doesnt :(");
 
-        // if placeholder isn't supported:
-        if (!supportsSlider) {
-            $('input[type=range]').rangeinput();
-        }
+        Modernizr.load({
+            test: supportsSlider,
+            nope: ['@Url.Content("~/Scripts/jquery.range.min.js")', '@Url.Content("~/Content/Range.css")'],
+            complete: function () {
+                if (!supportsSlider) {
+                    $('input[type=range]').rangeinput();
+                }
+            }
+        });
     });
 </script>
-
-@section HeaderContent {
-    <link href="@Url.Content("~/Content/Range.css")" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/Scripts/jquery.range.min.js")" type="text/javascript"></script>
-}
