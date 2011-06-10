@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "PolyfillSlider";
+}
+
+<h2>Using Polyfills to add Slider Support</h2>
+
+<p>
+    Does the browser support slider? <strong id="supports-slider"></strong>
+</p>
+
+<form id="myform">
+            
+    Fill it in: <input type="range" id="slider" name="important" min="1" max="10" step="1" />
+            
+    <input type="submit" value="Submit!"/>
+            
+</form>
+
+<script type="text/javascript">
+    $(function () {
+        var supportsSlider = Modernizr.inputtypes.range;
+        $("#supports-slider").html(supportsSlider ? "Yes it does!" : "No it doesnt :(");
+
+        // if placeholder isn't supported:
+        if (!supportsSlider) {
+            fdSlider.onDomReady();
+            //$('input[type=range]').slider();
+        }
+    });
+</script>

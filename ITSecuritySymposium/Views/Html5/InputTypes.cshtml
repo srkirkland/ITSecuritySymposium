@@ -46,6 +46,13 @@
         <input type="number" min="10" max="20" step="1" /> @(@"<input type=""number"" min=""10"" max=""20"" step=""1"" />")
     </div>
 
+    <div class="editor-label">
+        <label for="slider">Slider between 1 and 5: </label>
+    </div>
+    <div class="editor-field">
+        <input type="range" min="1" max="5" step="1" /> @(@"<input type=""range"" min=""1"" max=""5"" step=""1"" />")
+    </div>
+
     <p>
         <input type="submit" value="Save" /> | @Html.ActionLink("Cancel", "Index")
     </p>
