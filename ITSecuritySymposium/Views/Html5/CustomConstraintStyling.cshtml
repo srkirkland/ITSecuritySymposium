@@ -15,21 +15,21 @@
         <label>Required: </label>
     </div>
     <div class="editor-field">
-        <input type="text" required /> @(@"<input type=""text"" required />")
+        <input type="text" required /> <pre class="prettyprint inline">@(@"<input type=""text"" required />")</pre>
     </div>
 
     <div class="editor-label">
         <label>Email: </label>
     </div>
     <div class="editor-field">
-        <input type="email" required /> @(@"<input type=""email"" />")<span id="emailValid" class="email-validity" >[Valid!]</span>
+        <input type="email" required /><span id="emailValid" class="email-validity">[Valid!]</span> <pre class="prettyprint inline">@(@"<input type=""email"" required />")</pre>
     </div>
 
     <div class="editor-label">
         <label>Number: </label>
     </div>
     <div class="editor-field">
-        <input type="number" min="10" max="20" /> @(@"<input type=""number"" min=""10"" max=""20"" />")
+        <input type="number" min="10" max="20" /> <pre class="prettyprint inline">@(@"<input type=""number"" min=""10"" max=""20"" />")</pre>
     </div>
     
     <p>
@@ -74,7 +74,7 @@
     
     input[type=email]:valid + .email-validity
     {
-        display: block;
+        display: inline;
     }
     
     input:out-of-range
