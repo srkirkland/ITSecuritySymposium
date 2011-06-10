@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "CustomConstraints";
+}
+
+<h2>Html5 Custom Constraints</h2>
+
+<h3 style="color: Red;">@ViewBag.Message</h3>
+
+@using (Html.BeginForm()){
+    
+<fieldset>
+    <legend>Html5</legend>
+
+    <div class="editor-label">
+        <label>Required: </label>
+    </div>
+    <div class="editor-field">
+        <input type="text" required /> @(@"<input type=""text"" required />")
+    </div>
+
+    <div class="editor-label">
+        <label>Password: </label>
+    </div>
+    <div class="editor-field">
+        <input type="text" id="password" required /> @(@"<input type=""text"" id=""password"" required />")
+    </div>
+
+    <div class="editor-label">
+        <label>Confirm: </label>
+    </div>
+    <div class="editor-field">
+        <input type="text" id="confirm" /> @(@"<input type=""text"" id=""confirm"" />")
+    </div>
+    
+    <p>
+        <input type="submit" value="Save" /> | @Html.ActionLink("Cancel", "Index")
+    </p>
+</fieldset>
+    
+}
+
+
+<script>
+    $(function(){
+        $("#confirm").blur(function(){
+            checkPassword();
+        });
+    });
+
+    function checkPassword() {
+        var password = document.getElementById('password');
+        var confirm = document.getElementById('confirm');
+        if (password.value != confirm.value) {
+            confirm.setCustomValidity('passwords do not match');
+        } else {
+            confirm.setCustomValidity('');
+        }
+    }
+</script>
