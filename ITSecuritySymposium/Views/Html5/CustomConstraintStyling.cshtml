@@ -39,6 +39,28 @@
     
 }
 
+<hr />
+<pre class="prettifyprettyprint">
+    .email-validity
+    {
+        display:none;
+    }
+    
+    input:required:invalid {
+        background: pink;
+    }
+    
+    input[type=email]:valid + .email-validity
+    {
+        display: block;
+    }
+    
+    input:out-of-range
+    {
+        background: green;
+    }
+</pre>
+
 @section HeaderContent {
 <style type="text/css">        
     .email-validity

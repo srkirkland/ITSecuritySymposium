@@ -39,10 +39,28 @@
     
 }
 
+<hr />
+<pre class="prettyprint">
+    $(function () {
+        $("#confirm").bind('blur keyup', function () {
+            checkPassword();
+        });
+    });
+
+    function checkPassword() {
+        var password = document.getElementById('password');
+        var confirm = document.getElementById('confirm');
+        if (password.value != confirm.value) {
+            confirm.setCustomValidity('passwords do not match');
+        } else {
+            confirm.setCustomValidity('');
+        }
+    }
+</pre>
 
 <script>
-    $(function(){
-        $("#confirm").blur(function(){
+    $(function () {
+        $("#confirm").bind('blur keyup', function () {
             checkPassword();
         });
     });
