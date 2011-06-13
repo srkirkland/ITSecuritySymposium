@@ -22,7 +22,10 @@
 <a href="#" id="showhide">Show/Hide</a>
 <pre class="prettyprint accordion">
     $(function () {
-        var supportsSlider = Modernizr.inputtypes.range;
+        var input = document.createElement("input");
+        input.setAttribute("type", "range");
+
+        var supportsSlider = input.type !== "text";
         $("#supports-slider").html(supportsSlider ? "Yes it does!" : "No it doesnt :(");
 
         // if placeholder isn't supported: [Using rangeInput plugin]
@@ -34,7 +37,10 @@
 
 <script type="text/javascript">
     $(function () {
-        var supportsSlider = Modernizr.inputtypes.range;
+        var input = document.createElement("input");
+        input.setAttribute("type", "range");
+
+        var supportsSlider = input.type !== "text";
         $("#supports-slider").html(supportsSlider ? "Yes it does!" : "No it doesnt :(");
 
         // if placeholder isn't supported: [Using rangeInput plugin]
