@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "PolyfillSliderDynamicLoad";
+}
+
+<h2>Using Polyfills to add Slider Support with dynamic script loading</h2>
+
+<p>
+    Does the browser support slider? <strong id="supports-slider"></strong>
+</p>
+
+<form id="myform">
+            
+    Fill it in: <br />
+    <input type="range" id="slider" name="important" min="1" max="10" step="1" />
+            
+    <input type="submit" value="Submit!"/>
+            
+</form>
+
+<hr />
+
+<a href="#" id="showhide">Show/Hide</a>
+<pre class="prettyprint accordion">
+    $(function () {
+        var supportsSlider = Modernizr.inputtypes.range;
+        $("#supports-slider").html(supportsSlider ? "Yes it does!" : "No it doesnt :(");
+
+        Modernizr.load({
+            test: supportsSlider,
+            nope: ['@Url.Content("~/Scripts/jquery.range.min.js")', '@Url.Content("~/Content/Range.css")'],
+            complete: function () {
+                if (!supportsSlider) {
+                    $('input[type=range]').rangeinput();
+                }
+            }
+        });
+    });
+</pre>
+
+<script type="text/javascript">
+    $(function () {
+        var supportsSlider = Modernizr.inputtypes.range;
+        $("#supports-slider").html(supportsSlider ? "Yes it does!" : "No it doesnt :(");
+
+        Modernizr.load({
+            test: supportsSlider,
+            nope: ['@Url.Content("~/Scripts/jquery.range.min.js")', '@Url.Content("~/Content/Range.css")'],
+            complete: function () {
+                if (!supportsSlider) {
+                    $('input[type=range]').rangeinput();
+                }
+            }
+        });
+    });
+</script>

@@ -13,12 +13,15 @@
     </li>
     <li>
         Click button to generate a post transfer to steal money 
-        <form action="@bankUrl" method="post">
-            <button type="submit">Give to the poor mob boss</button>
-            <input type="hidden" name="from" value="srkirkland" />
-            <input type="hidden" name="to" value="tsoprano" />
-            <input type="hidden" name="amount" value="100" />
-        </form>
+        <fieldset>
+            <legend>Aquire More Money</legend>            
+            <form action="@bankUrl" method="post">
+                From: <input type="text" name="from" value="srkirkland" /><br />
+                To: <input type="text" name="to" value="tsoprano" /><br />
+                Amount: <input type="text" name="amount" value="100" /><br />
+                <button type="submit">Give to the poor mob boss</button>
+            </form>
+        </fieldset>
     </li>
 </ol>
 

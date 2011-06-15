@@ -17,8 +17,28 @@
 </form>
 
 <p>
-    Checking required support in javascript is simple: <em>var hasRequired = 'required' in document.createElement('input');</em>
+    Checking required support in javascript is simple: <pre class="prettyprint inline">var hasRequired = 'required' in document.createElement('input');</pre>
 </p>
+
+<hr />
+
+<a href="#" id="showhide">Show/Hide</a>
+<pre class="prettyprint accordion">
+    var hasRequired = 'required' in document.createElement('input');
+
+    $(function () {
+        $("#supports-required").html(hasRequired ? "Yes it does!" : "No it doesnt :(");
+
+        $('#myform').submit(function (e) {
+            if (!hasRequired) {
+                if ($('#txtbox').val() === '') {
+                    alert("fill in the box");
+                    e.preventDefault();
+                }
+            }
+        });
+    });
+</pre>
 
 <script>
     var hasRequired = 'required' in document.createElement('input');

