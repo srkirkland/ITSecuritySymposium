@@ -1,0 +1,93 @@
+﻿@model ITSecuritySymposium.Models.Post
+
+@{
+    ViewBag.Title = "Post";
+}
+
+<h2>Post</h2>
+
+<p>
+<strong>@Model.Author</strong> wrote on @Model.Created.ToShortDateString()
+</p>
+
+@Model.Content
+
+<h2 id="comment-heading">Comments</h2>
+
+<table id="comments">
+    <thead>
+    <tr>
+        <th>
+            Author
+        </th>
+        <th>
+            Created
+        </th>
+        <th>
+            Content
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Comments) {
+    <tr>
+        <td class="author">
+            @Html.DisplayFor(modelItem => item.Author)
+        </td>
+        <td class="created">
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td class="content">
+            @Html.Raw(item.Content)
+            @*@Html.DisplayFor(modelItem => item.Content)*@
+        </td>
+        <td>
+            @using(Html.BeginForm("DeleteComment", "Xss", new {id = item.Id, postid = Model.Id})){
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Delete" />
+            }
+        </td>
+    </tr>
+    
+}
+</tbody>
+</table>
+
+@using (Html.BeginForm("CreateComment", "Xss", new { id = @Model.Id }))
+{ 
+    <fieldset>
+        <legend>New Comment</legend>
+
+        @Html.AntiForgeryToken()
+        
+        <div class="editor-label">
+            <label for="author">Author: </label>
+        </div>
+        <div class="editor-field">
+            <input type="text" id="author" name="author" value="@User.Identity.Name" />
+        </div>
+
+        <div class="editor-label">
+            <label for="content">Comment: </label>
+        </div>
+        <div class="editor-field">
+            <textarea name="content"></textarea>
+        </div>
+
+        <p>
+            <input type="submit" value="Save" /> | @Html.ActionLink("Cancel", "Index")
+        </p>
+    </fieldset>
+}
+
+<script>
+    $(function () {
+        var userhandle = localStorage.getItem("userhandle");
+
+        if (userhandle != null && userhandle != '') {
+            $("#comment-heading").html("Please add a comment " + userhandle);
+            $("#author").val(userhandle);
+        }
+    });
+</script>

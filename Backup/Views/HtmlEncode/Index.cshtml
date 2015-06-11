@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Index";
+    
+    var txt = ViewData["txt"] != null ? ViewData["txt"].ToString() : string.Empty;
+}
+
+@section HeaderContent
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".example_txt").click(function () {
+                var txt = $(this).siblings(".txt").html();
+                $("#txt").val(txt);
+            });
+        });
+    </script>
+}
+
+<h2>Index</h2>
+
+<fieldset>
+    <legend>Input</legend>
+
+    @using(Html.BeginForm("Index", "HtmlEncode"))
+    {
+        <ul class="form">
+            <li>@Html.TextArea("txt", new { style="width: 500px; height: 100px;" })</li>
+            <li><input type="submit" value="Submit Text" /></li>
+
+            <li>&nbsp;</li>
+
+            <li><a href="javascript:;" class="example_txt">Example 1</a>
+                <span class="txt">hello world!</span>
+            </li>
+            <li><a href="javascript:;" class="example_txt">Example 2</a>
+                <span class="txt"><em>hello world!</em></span>
+            </li>
+            <li><a href="javascript:;" class="example_txt">Example 3</a>
+                <span class="txt"><div onmouseover='alert("injection");'>Come mouse over me :)</div></span>
+            </li>
+
+        </ul>
+    }
+
+</fieldset>
+
+<fieldset class="output">
+    <legend>Encoded</legend>
+
+    @txt
+
+</fieldset>
+
+<fieldset class="output">
+    <legend>Not Encoded</legend>
+
+    @Html.Raw(txt)
+
+</fieldset>

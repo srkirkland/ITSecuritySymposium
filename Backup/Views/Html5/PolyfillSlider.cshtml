@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "PolyfillSlider";
+}
+
+<h2>Using Polyfills to add Slider Support</h2>
+
+<p>
+    Does the browser support slider? <strong id="supports-slider"></strong>
+</p>
+
+<form id="myform">
+            
+    Fill it in: <br />
+    <input type="range" id="slider" name="important" min="1" max="10" step="1" />
+            
+    <input type="submit" value="Submit!"/>
+            
+</form>
+
+<hr />
+
+<a href="#" id="showhide">Show/Hide</a>
+<pre class="prettyprint accordion">
+    $(function () {
+        var input = document.createElement("input");
+        input.setAttribute("type", "range");
+
+        var supportsSlider = input.type !== "text";
+        $("#supports-slider").html(supportsSlider ? "Yes it does!" : "No it doesnt :(");
+
+        // if placeholder isn't supported: [Using rangeInput plugin]
+        if (!supportsSlider) {
+            $('input[type=range]').rangeinput();
+        }
+    });
+</pre>
+
+<script type="text/javascript">
+    $(function () {
+        var input = document.createElement("input");
+        input.setAttribute("type", "range");
+
+        var supportsSlider = input.type !== "text";
+        $("#supports-slider").html(supportsSlider ? "Yes it does!" : "No it doesnt :(");
+
+        // if placeholder isn't supported: [Using rangeInput plugin]
+        if (!supportsSlider) {
+            $('input[type=range]').rangeinput();
+        }
+    });
+</script>
+
+@section HeaderContent {
+    <link href="@Url.Content("~/Content/Range.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery.range.min.js")" type="text/javascript"></script>
+}

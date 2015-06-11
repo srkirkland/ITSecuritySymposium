@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "PolyfillPlaceholder";
+}
+
+<h2>Using Polyfills to add Placeholder Support</h2>
+
+<p>
+    Does the browser support placeholder? <strong id="supports-placeholder"></strong>
+</p>
+
+<form id="myform">
+            
+    Fill it in: <input type="text" id="supports-placeholder" name="important" placeholder="Your favorite cat name?" />
+            
+    <input type="submit" value="Submit!"/>
+            
+</form>
+
+<hr />
+
+<a href="#" id="showhide">Show/Hide</a>
+<pre class="prettyprint accordion">
+    $(function () {
+        var hasPlaceholder = 'placeholder' in document.createElement('input');
+        $("#supports-placeholder").html(hasPlaceholder ? "Yes it does!" : "No it doesnt :(");
+
+        // if placeholder isn't supported:
+        if (!hasPlaceholder) {
+            $('input, textarea').placeholder();   
+        }
+    });
+</pre>
+
+<script src="@Url.Content("~/Scripts/jquery.placeholder.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        var hasPlaceholder = 'placeholder' in document.createElement('input');
+        $("#supports-placeholder").html(hasPlaceholder ? "Yes it does!" : "No it doesnt :(");
+
+        // if placeholder isn't supported:
+        if (!hasPlaceholder) {
+            $('input, textarea').placeholder();   
+        }
+    });
+</script>

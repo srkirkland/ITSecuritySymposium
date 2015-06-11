@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "GetForgeryPage";
+    var bankUrl = System.Web.Configuration.WebConfigurationManager.AppSettings["GoodUrl"] + "/Bank/TransferMoney";
+    var bankUrlWithNefariousParams = bankUrl + "?from=srkirkland&to=tsoprano&amount=100";
+}
+
+<h2>Look at this awesome page!</h2>
+
+[Pictures of cats]
+<img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/286.jpg" />
+
+<img src="http://placekitten.com.s3.amazonaws.com/homepage-samples/408/287.jpg" />
+
+<img src="@bankUrlWithNefariousParams" />

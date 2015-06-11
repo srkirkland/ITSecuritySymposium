@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "PolyfillRequired";
+}
+
+<h2>Example of Polyfill for Required</h2>
+
+<p>
+    Does the browser support required? <strong id="supports-required"></strong>
+</p>
+
+<form id="myform">
+            
+    This field is required: <input type="text" id="txtbox" name="important" required />
+            
+    <input type="submit" value="Submit!"/>
+            
+</form>
+
+<p>
+    Checking required support in javascript is simple: <pre class="prettyprint inline">var hasRequired = 'required' in document.createElement('input');</pre>
+</p>
+
+<hr />
+
+<a href="#" id="showhide">Show/Hide</a>
+<pre class="prettyprint accordion">
+    var hasRequired = 'required' in document.createElement('input');
+
+    $(function () {
+        $("#supports-required").html(hasRequired ? "Yes it does!" : "No it doesnt :(");
+
+        $('#myform').submit(function (e) {
+            if (!hasRequired) {
+                if ($('#txtbox').val() === '') {
+                    alert("fill in the box");
+                    e.preventDefault();
+                }
+            }
+        });
+    });
+</pre>
+
+<script>
+    var hasRequired = 'required' in document.createElement('input');
+
+    $(function () {
+        $("#supports-required").html(hasRequired ? "Yes it does!" : "No it doesnt :(");
+
+        $('#myform').submit(function (e) {
+            if (!hasRequired) {
+                if ($('#txtbox').val() === '') {
+                    alert("fill in the box");
+                    e.preventDefault();
+                }
+            }
+        });
+    });
+</script>
