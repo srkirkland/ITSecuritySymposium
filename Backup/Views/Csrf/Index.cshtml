@@ -1,0 +1,24 @@
+﻿@model List<ITSecuritySymposium.Models.Balance>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome to Uncle Vito's Secure Savings and Loan(sharking)</h2>
+
+<h3>@User.Identity.Name: your current balance is @Model.Where(x=>x.UserName == User.Identity.Name).Single().Amount</h3>
+
+<ul>
+<li>@Html.ActionLink("Care to transfer?", "Transfer")</li>
+<li>@Html.ActionLink("Account Details", "AccountDetails", new { id = User.Identity.Name })</li>
+</ul>
+
+<hr />
+<h5>All trusted banking customers:</h5>
+<ul>
+    @foreach (var balance in @Model) { 
+        <li>
+            @balance.UserName has @balance.Amount
+        </li>
+    }
+</ul>

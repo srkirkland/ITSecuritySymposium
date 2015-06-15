@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "InputTypes";
+}
+
+<h2>New Html5 Input Types</h2>
+
+<h3 style="color: Red;">@ViewBag.Message</h3>
+
+@using(Html.BeginForm()){
+    
+<fieldset>
+    <legend>Html5</legend>
+
+    <div class="editor-label">
+        <label for="from">Old text input: </label>
+    </div>
+    <div class="editor-field">
+        <input type="text" /> <pre class="prettyprint inline">@(@"<input type=""text"" />")</pre>
+    </div>
+
+    <div class="editor-label">
+        <label for="email">Email: </label>
+    </div>
+    <div class="editor-field">
+        <input type="email" /> <pre class="prettyprint inline">@(@"<input type=""email"" />")</pre>
+    </div>
+
+    <div class="editor-label">
+        <label for="url">Url: </label>
+    </div>
+    <div class="editor-field">
+        <input type="url" /> <pre class="prettyprint inline">@(@"<input type=""url"" />")</pre>
+    </div>
+
+    <div class="editor-label">
+        <label for="number">Number: </label>
+    </div>
+    <div class="editor-field">
+        <input type="number" /> <pre class="prettyprint inline">@(@"<input type=""number"" />")</pre>
+    </div>
+
+    <div class="editor-label">
+        <label for="integer">Integer or half-step between 10 and 20: </label>
+    </div>
+    <div class="editor-field">
+        <input type="number" min="10" max="20" step="0.5" /> <pre class="prettyprint inline">@(@"<input type=""number"" min=""10"" max=""20"" step=""0.5"" />")</pre>
+    </div>
+
+    <div class="editor-label">
+        <label for="slider">Slider between 1 and 5: </label>
+    </div>
+    <div class="editor-field">
+        <input type="range" min="1" max="5" step="1" /> <pre class="prettyprint inline">@(@"<input type=""range"" min=""1"" max=""5"" step=""1"" />")</pre>
+    </div>
+
+    <p>
+        <input type="submit" value="Save" /> | @Html.ActionLink("Cancel", "Index")
+    </p>
+</fieldset>
+    
+}

@@ -20,6 +20,7 @@ namespace ITSecuritySymposium.Controllers
         [ValidateInput(false)]
         public ActionResult Index(string txt)
         {
+            ControllerContext.HttpContext.Response.AddHeader("X-XSS-Protection", "0");
             ViewData["txt"] = txt;
 
             return View();

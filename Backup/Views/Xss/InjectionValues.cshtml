@@ -1,0 +1,29 @@
+﻿@model List<BadGuy.Controllers.InjectionExample>
+           
+@{
+    ViewBag.Title = "InjectionValues";
+}
+
+@section HeaderContent{
+    <style type="text/css">
+        #examples>div
+        {
+            border-style: groove;
+            margin: 5px;
+            padding: 5px;
+        }           
+    </style>
+}
+
+<h2>InjectionValues</h2>
+
+<div id="examples">
+    @foreach (var ex in Model) { 
+        <div>
+            <h3>@ex.Title</h3>
+        
+            <em>@ex.Content</em>
+        </div>
+    
+    }
+</div>
