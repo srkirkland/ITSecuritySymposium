@@ -23,6 +23,8 @@ namespace ITSecuritySymposium
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+
+        public DbSet<Member> Members { get; set; } 
         /*
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }
@@ -41,9 +43,17 @@ namespace ITSecuritySymposium
             CreateBalances(context);
 
             CreatePosts(context);
-
             
+            CreateMembers(context);
+
             context.SaveChanges();
+        }
+
+        private void CreateMembers(SymposiumDataContext context)
+        {
+            var member = new Member { Username = "pjfry", Name = "Phillip", Email = "fry@planetexpress.com", IsAdmin = true};
+
+            context.Members.Add(member);
         }
 
         private static void CreatePosts(SymposiumDataContext context)
