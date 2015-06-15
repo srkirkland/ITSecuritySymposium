@@ -23,7 +23,7 @@ namespace BadGuy.Controllers
                                    new InjectionExample
                                        {
                                            Title = "Image Loading Example",
-                                           Content = @"<img src='http://placekitten.com/200/300' />"
+                                           Content = @"<img src='http://placekitten.com/200/400' />"
                                        },
                                    new InjectionExample
                                        {
