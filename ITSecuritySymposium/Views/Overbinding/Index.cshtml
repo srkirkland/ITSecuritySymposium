@@ -1,0 +1,61 @@
+﻿@model System.Collections.Generic.List<ITSecuritySymposium.Models.Member>
+
+@{
+    ViewBag.Title = "Members";
+}
+
+<h2>Members</h2>
+    
+@using (Html.BeginForm("AddMember", "Overbinding"))
+{
+    <fieldset>
+        <legend>Create New Member</legend>
+        @Html.AntiForgeryToken()
+        
+        <div class="editor-label">
+            <label for="username">Username: </label>
+        </div>
+        <div class="editor-field">
+            <input type="text" name="username" placeholder="Pick a username" />
+        </div>
+
+        <div class="editor-label">
+            <label for="name">Name: </label>
+        </div>
+        <div class="editor-field">
+            <input type="text" name="name" placeholder="Name" />
+        </div>
+
+        <div class="editor-label">
+            <label for="email">Email: </label>
+        </div>
+        <div class="editor-field">
+            <input type="email" name="email" placeholder="Email" />
+        </div>
+        <p>
+            <input type="submit" value="Create!" />
+        </p>
+    </fieldset>
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Admin?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td>@member.Username</td>
+                <td>@member.Name</td>
+                <td>@member.Email</td>
+                <td>@member.IsAdmin</td>
+            </tr>
+        }
+    </tbody>
+</table>
