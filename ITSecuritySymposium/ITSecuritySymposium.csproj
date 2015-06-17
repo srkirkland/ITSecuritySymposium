@@ -92,8 +92,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CasMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\CasController.cs" />
     <Compile Include="Controllers\CookieController.cs" />
     <Compile Include="Controllers\CsrfController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
